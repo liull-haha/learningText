@@ -1,0 +1,33 @@
+##zookeeper
+1.默认端口2181 ：clientPort=2181
+2.配置文件：./conf/zoo.cfg
+2.启动脚本：./bin/zkServer.sh start
+3.启动脚本：./bin/zkServer.sh stop
+4.查看启动状态：./bin/zkServer.sh status
+5.集群配置：
+server.id=host：port1：port2
+例如：
+真集群：
+	server.1=lllsgf01:2888:3888
+	server.2=lllsgf02:2888:3888
+伪集群：
+	端口不同：clientPort=2181
+	server.1=lllsgf01:2888:3888
+	server.2=lllsgf01:2999:3999
+伪集群需要增加admin.serverPort的端口配置，默认8080
+	
+id：被称为service ID，用来标识机器在集群中机器序号，同时，在每台zookeeper机器上，需要在数据目录（dataDir参数指定的那个目录下）创建一个myid的文件，文件只要一行内容，并且是一个数字，即对应每台服务器的serverID的数字；
+port1：表示的是这个服务器与集群中的 Leader服务器交换信息的端口；
+port2：表示的是万一集群中的 Leader 服务器挂了，需要一个端口来重新进行选举，选出一个新的 Leader，而这个端口就是用来执行选举时服务器相互通信的端口。
+如果是伪集群的配置方式，由于 host 都是一样， 所以不同的 Zookeeper 实例通信端口号不能一样，所以要给它们分配不同的端口号；
+
+
+##kafka
+1.默认端口9092 ：listeners=PLAINTEXT://lllsgf01:9092
+2.连接zookeeper集群配置：zookeeper.connect=lllsgf01:2181,lllsgf01:2191
+3.启动命令：bin/kafka-server-start.sh config/server.properties    后台启动：bin/kafka-server-start.sh -daemon config/server.properties 
+4.停止命令：bin/kafka-server-stop.sh config/server.properties
+5.集群配置：
+	broker.id=1 （broker.id 是唯一标识符，而且是每一个集群的唯一值）
+	listeners=PLAINTEXT://lllsgf01:9093（伪集群需要端口不同）
+	log.dirs=/root/kafka/kafka-logs 

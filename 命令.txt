@@ -1,0 +1,4 @@
+##tar:
+1.打包：tar -zcvf renwolesshel.tar.gz /renwolesshel
+				(要打的包命名)     (要打成包的目录)
+2.解包：tar -zxvf renwolesshel.tar.gz				
