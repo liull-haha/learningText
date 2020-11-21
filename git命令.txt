@@ -1,2 +1,30 @@
 #列出已经存在的远程分支
 git remote -v | --verbose 列出详细信息，在每一个名字后面列出其远程url
+
+origin  https://github.com/liull-haha/learningText.git (fetch)
+origin  https://github.com/liull-haha/learningText.git (push)
+
+origin代表远程主机名
+
+
+#克隆
+git clone git地址
+
+#加入本地仓库管理
+git add 文件名
+
+#提交修改到本地仓库
+git commit -m "注释"
+
+#提交到远处仓库
+git push <远程主机名> <本地分支名>:<远程分支名>
+例如：git push origin main:main
+如果本地和远程分支名相同则可以省略为 git push <远程主机名> <本地分支名>
+例如：git push origin main
+
+#查看仓库当前的状态
+git status
+
+#拉取远程内容
+git pull
+ 
