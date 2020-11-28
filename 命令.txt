@@ -95,7 +95,7 @@ username  ALL=(ALL)       ALL  #这个是新增的用户名
 3.新增用户
 #adduser lll
 #passwd lll 
-#sudo命令的授权
+#sudo命令的授权 查看1
 
 
 
