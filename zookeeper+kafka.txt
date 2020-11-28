@@ -23,7 +23,7 @@ port2：表示的是万一集群中的 Leader 服务器挂了，需要一个端�
 
 
 ##kafka
-1.默认端口9092 ：listeners=PLAINTEXT://lllsgf01:9092
+1.默认端口9092 ：listeners=PLAINTEXT://内网IP:9092   advertised.listeners=PLAINTEXT://公网IP:9092   ip配置参考网址：https://blog.csdn.net/lee9289/article/details/83213344
 2.连接zookeeper集群配置：zookeeper.connect=lllsgf01:2181,lllsgf01:2191
 3.启动命令：bin/kafka-server-start.sh config/server.properties    后台启动：bin/kafka-server-start.sh -daemon config/server.properties 
 4.停止命令：bin/kafka-server-stop.sh config/server.properties
@@ -31,3 +31,6 @@ port2：表示的是万一集群中的 Leader 服务器挂了，需要一个端�
 	broker.id=1 （broker.id 是唯一标识符，而且是每一个集群的唯一值）
 	listeners=PLAINTEXT://lllsgf01:9093（伪集群需要端口不同）
 	log.dirs=/root/kafka/kafka-logs 
+
+6.创建一个主题：3个分区，2个副本
+./kafka-topics.sh --create --zookeeper lllsgf01:2181,lllsgf01:2191,lllsgf01:2171 --topic demoTest --partitions 3 --replication-factor 2
