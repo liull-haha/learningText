@@ -119,4 +119,11 @@ username  ALL=(ALL)       ALL  #这个是新增的用户名
 oracle查询日期语法：
     select to_date('2005-01-01 ','yyyy-MM-dd') from dual;
     select to_char(sysdate,'yyyy-MM-dd HH24:mi:ss') from dual;		
+	
+------------------------------------------------------------------------------------------------------------------------------------------------------
+idea快捷键：
+1.Ctrl+F12 查看当前field,method大纲
+2.Ctrl+alt+Shift+U查看maven依赖，类图
+3.Ctrl+H，查看类的继承关系
+4.Ctrl+Alt+H，查看方法的调用和被调用关系	
 				
